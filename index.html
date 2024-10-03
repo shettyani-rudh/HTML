@@ -1,0 +1,39 @@
+<!-- 1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <style>
+        .chessboard {
+            width: 320px;
+            height: 320px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+        }
+        .chessboard div {
+            width: 40px;
+            height: 40px;
+        }
+        .chessboard .black {
+            background-color: black;
+        }
+        .chessboard .white {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="chessboard">
+        <script>
+            for (let i = 0; i < 64; i++) {
+                let square = document.createElement('div');
+                square.className = (i + Math.floor(i / 8)) % 2 === 0 ? 'white' : 'black';
+                document.querySelector('.chessboard').appendChild(square);
+            }
+        </script>
+    </div>
+</body>
+</html>
